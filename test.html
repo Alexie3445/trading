@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Test</title>
+</head>
+<body>
+    <h2>Test Firebase Auth</h2>
+    
+    <input type="email" id="testEmail" value="test@test.com"><br><br>
+    <input type="password" id="testPassword" value="test123"><br><br>
+    
+    <button onclick="testSignup()">Test Signup</button>
+    <button onclick="testLogin()">Test Login</button>
+    
+    <div id="result" style="margin-top: 20px; padding: 10px;"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDkYmCw8aXm4vdlFUSPtsbaj0dLr14vUiw",
+            authDomain: "trading-ce7a5.firebaseapp.com",
+            projectId: "trading-ce7a5",
+            storageBucket: "trading-ce7a5.firebasestorage.app",
+            messagingSenderId: "558394601592",
+            appId: "1:558394601592:web:d9d3417ee8960033407d8d"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        async function testSignup() {
+            const email = document.getElementById('testEmail').value;
+            const password = document.getElementById('testPassword').value;
+            
+            try {
+                document.getElementById('result').innerHTML = "Signing up...";
+                const user = await auth.createUserWithEmailAndPassword(email, password);
+                document.getElementById('result').innerHTML = "✅ SIGNUP SUCCESS! User ID: " + user.user.uid;
+            } catch (error) {
+                document.getElementById('result').innerHTML = "❌ Error: " + error.message;
+            }
+        }
+
+        async function testLogin() {
+            const email = document.getElementById('testEmail').value;
+            const password = document.getElementById('testPassword').value;
+            
+            try {
+                document.getElementById('result').innerHTML = "Logging in...";
+                const user = await auth.signInWithEmailAndPassword(email, password);
+                document.getElementById('result').innerHTML = "✅ LOGIN SUCCESS! User: " + user.user.email;
+            } catch (error) {
+                document.getElementById('result').innerHTML = "❌ Error: " + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

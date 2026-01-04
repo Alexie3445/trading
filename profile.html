@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Wefunds Ltd</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+    <!-- Navigation (same as dashboard) -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="dashboard.html" class="logo">
+                <span>Wefunds Ltd</span>
+            </a>
+            <div class="nav-links">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="profile.html" class="nav-link active">Profile</a>
+                <a href="settings.html">Settings</a>
+                <div class="user-menu">
+                    <div class="balance-display" id="balanceDisplay">
+                        <span class="loader" style="width: 16px; height: 16px;"></span>
+                    </div>
+                    <button onclick="authManager.logout()" class="btn btn-secondary">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Content -->
+    <div class="container" style="padding: 40px 20px;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h1 style="margin-bottom: 30px;">Profile</h1>
+            
+            <div class="card" style="margin-bottom: 20px;">
+                <h3 style="margin-bottom: 20px;">Account Information</h3>
+                <div id="profileInfo">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div>
+                            <label class="form-label">Full Name</label>
+                            <div class="form-control" style="background: var(--secondary-bg);" id="profileName">
+                                <div class="skeleton" style="width: 100%; height: 20px;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="form-label">Email</label>
+                            <div class="form-control" style="background: var(--secondary-bg);" id="profileEmail">
+                                <div class="skeleton" style="width: 100%; height: 20px;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="form-label">Phone</label>
+                            <div class="form-control" style="background: var(--secondary-bg);" id="profilePhone">
+                                <div class="skeleton" style="width: 100%; height: 20px;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="form-label">Country</label>
+                            <div class="form-control" style="background: var(--secondary-bg);" id="profileCountry">
+                                <div class="skeleton" style="width: 100%; height: 20px;"></div>
+                            </div>
+                        </div>
+                        <div style="grid-column: span 2;">
+                            <label class="form-label">Address</label>
+                            <div class="form-control" style="background: var(--secondary-bg); min-height: 60px;" id="profileAddress">
+                                <div class="skeleton" style="width: 100%; height: 20px; margin-bottom: 5px;"></div>
+                                <div class="skeleton" style="width: 80%; height: 20px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-bottom: 20px;">
+                <h3 style="margin-bottom: 20px;">Account Statistics</h3>
+                <div id="accountStats">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                        <div>
+                            <label class="form-label">Account Created</label>
+                            <div class="form-control" style="background: var(--secondary-bg);" id="accountCreated">
+                                <div class="skeleton" style="width: 100%; height: 20px;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="form-label">Registration Order</label>
+                            <div class="form-control" style="background: var(--secondary-bg);" id="registrationOrder">
+                                <div class="skeleton" style="width: 100%; height: 20px;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="form-label">Promo Type</label>
+                            <div class="form-control" style="background: var(--secondary-bg);" id="promoType">
+                                <div class="skeleton" style="width: 100%; height: 20px;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="form-label">Account Status</label>
+                            <div class="form-control" style="background: var(--secondary-bg);" id="accountStatus">
+                                <div class="skeleton" style="width: 100%; height: 20px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-bottom: 20px;">Recent Activity</h3>
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Action</th>
+                                <th>Details</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activityTable">
+                            <tr>
+                                <td colspan="4" style="text-align: center; padding: 40px;">
+                                    <div class="skeleton" style="width: 100%; height: 20px; margin-bottom: 10px;"></div>
+                                    <div class="skeleton" style="width: 80%; height: 20px; margin: 0 auto;"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="emergency-fix.js"></script>
+</body>
+</html>

@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promo Challenge - TradeLearn</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="trading-logo">
+                <i class="fas fa-chart-line"></i>
+                <span>TradeLearn</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <a href="index.html" style="color: inherit; text-decoration: none;">
+                    <span>TradeLearn</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#prizes">Prizes</a>
+                <a href="#rules">Rules</a>
+                <a href="login.html" class="btn-secondary">Login</a>
+                <a href="register.html" class="btn-primary">Join Now</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="promo-hero">
+        <div class="container">
+            <div class="promo-hero-content">
+                <div class="promo-badge glow" style="margin-bottom: 1.5rem;">
+                    <span><i class="fas fa-bolt"></i> LIMITED TIME OFFER</span>
+                </div>
+                
+                <h1 class="promo-title">
+                    <span class="gradient-text">$10,000</span> Demo Trading Challenge
+                </h1>
+                
+                <p class="promo-subtitle">
+                    Be among the first 5 users and start with <strong>$10,000 virtual capital</strong> instead of $1,000!
+                </p>
+                
+                <div class="promo-countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span id="days">05</span>
+                        <small>Days</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">23</span>
+                        <small>Hours</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">47</span>
+                        <small>Minutes</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">12</span>
+                        <small>Seconds</small>
+                    </div>
+                </div>
+                
+                <div class="promo-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Spots Left</h3>
+                            <p class="stat-value" id="spotsLeft">Loading...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Promo Winners</h3>
+                            <p class="stat-value" id="promoWinners">0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Registered</h3>
+                            <p class="stat-value" id="totalUsers">0</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="register.html" class="btn-promo-large">
+                        <i class="fas fa-crown"></i> Claim Your $10,000 Now
+                    </a>
+                    <a href="#how-it-works" class="btn-secondary">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How the Promo Works</h2>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3>Register Now</h3>
+                    <p>Sign up for free on TradeLearn platform</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Be Among First 5</h3>
+                    <p>First 5 registered users win the promo</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>Get $10,000 Balance</h3>
+                    <p>Receive $10,000 demo trading capital instantly</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Start Trading</h3>
+                    <p>Practice with extra virtual funds</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prizes Section -->
+    <section id="prizes" class="prizes">
+        <div class="container">
+            <h2 class="section-title">Demo Account Types</h2>
+            
+            <div class="prize-cards">
+                <div class="prize-card">
+                    <div class="prize-header">
+                        <h3>🎯 Standard Account</h3>
+                        <div class="prize-badge">For All Users</div>
+                    </div>
+                    <div class="prize-amount">
+                        <span class="amount">$1,000</span>
+                        <span class="label">Demo Balance</span>
+                    </div>
+                    <ul class="prize-features">
+                        <li><i class="fas fa-check"></i> Full trading access</li>
+                        <li><i class="fas fa-check"></i> Real-time charts</li>
+                        <li><i class="fas fa-check"></i> All trading pairs</li>
+                        <li><i class="fas fa-check"></i> Trade history</li>
+                        <li><i class="fas fa-check"></i> Educational resources</li>
+                    </ul>
+                    <a href="register.html" class="btn-secondary" style="width: 100%;">
+                        Get Standard Account
+                    </a>
+                </div>
+                
+                <div class="prize-card featured">
+                    <div class="prize-header">
+                        <h3>🏆 Promo Winner Account</h3>
+                        <div class="prize-badge promo">First 5 Users Only</div>
+                    </div>
+                    <div class="prize-amount">
+                        <span class="amount">$10,000</span>
+                        <span class="label">Demo Balance</span>
+                    </div>
+                    <div class="prize-bonus">
+                        <i class="fas fa-gift"></i> 10x More Starting Capital!
+                    </div>
+                    <ul class="prize-features">
+                        <li><i class="fas fa-check"></i> <strong>$10,000 virtual capital</strong></li>
+                        <li><i class="fas fa-check"></i> All Standard features</li>
+                        <li><i class="fas fa-check"></i> Promo winner badge</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> Exclusive learning materials</li>
+                    </ul>
+                    <a href="register.html" class="btn-promo-large" style="width: 100%;">
+                        <i class="fas fa-bolt"></i> Join Promo Challenge
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="rules">
+        <div class="container">
+            <h2 class="section-title">Promo Rules & Terms</h2>
+            
+            <div class="rules-content">
+                <div class="rules-card">
+                    <h3><i class="fas fa-shield-alt"></i> Important Rules</h3>
+                    <ul class="rules-list">
+                        <li>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <strong>First 5 registered users</strong> automatically qualify for $10,000 demo balance
+                        </li>
+                        <li>
+                            <i class="fas fa-exclamation-circle"></i>
+                            All other users receive standard $1,000 demo balance
+                        </li>
+                        <li>
+                            <i class="fas fa-exclamation-circle"></i>
+                            One promo prize per user only
+                        </li>
+                        <li>
+                            <i class="fas fa-exclamation-circle"></i>
+                            Email verification required to claim prize
+                        </li>
+                        <li>
+                            <i class="fas fa-exclamation-circle"></i>
+                            Demo funds cannot be converted to real money
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="rules-card">
+                    <h3><i class="fas fa-info-circle"></i> Key Information</h3>
+                    <ul class="rules-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <strong>Educational Platform:</strong> This is a demo trading platform for learning
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <strong>No Real Money:</strong> All trading is with virtual funds only
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <strong>No Financial Risk:</strong> Perfect for beginners to practice
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <strong>Not Investment Advice:</strong> For educational purposes only
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <strong>School Project:</strong> Created for educational demonstration
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I know if I'm among the first 5 users?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>After registration, you'll see a "🎉 PROMO WINNER 🎉" badge on your dashboard if you're among the first 5. You'll also receive $10,000 demo balance instead of $1,000.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I win real money from this promo?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>No.</strong> This is an educational demo platform. All funds are virtual. The $10,000 prize is demo trading capital for practice only.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What happens if I'm not among the first 5?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You'll still get a fully functional demo account with $1,000 virtual capital. You can practice trading and learn with all the same features.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is there any cost to join?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>No.</strong> TradeLearn is completely free. This is an educational platform for a school project. No payment is required or accepted.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="promo-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Don't Miss Your Chance!</h2>
+                <p>Join now and compete to be among the first 5 users for the $10,000 demo balance prize.</p>
+                
+                <div class="cta-stats">
+                    <div class="cta-stat">
+                        <i class="fas fa-user-clock"></i>
+                        <span>Limited spots available</span>
+                    </div>
+                    <div class="cta-stat">
+                        <i class="fas fa-gift"></i>
+                        <span>$10,000 virtual capital</span>
+                    </div>
+                    <div class="cta-stat">
+                        <i class="fas fa-lock"></i>
+                        <span>No real money involved</span>
+                    </div>
+                </div>
+                
+                <a href="register.html" class="btn-promo-large">
+                    <i class="fas fa-crown"></i> Claim Your Spot Now
+                </a>
+                
+                <p class="cta-note">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>Remember:</strong> This is an educational demo platform. No financial risk involved.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-chart-line"></i>
+                    <span>TradeLearn</span>
+                </div>
+                <p class="footer-disclaimer">
+                    <strong>Educational Platform Only:</strong> This is a demo trading platform for educational purposes. 
+                    No real money is involved. Not financial advice.
+                </p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="login.html">Login</a>
+                    <a href="register.html">Register</a>
+                    <a href="mailto:admin@tradelearn.demo">Contact</a>
+                </div>
+                <p class="copyright">
+                    &copy; 2024 TradeLearn Demo Platform. School Project.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"></script>
+    
+    <!-- App Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+    
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const endDate = new Date();
+            endDate.setDate(endDate.getDate() + 5); // 5 days from now
+            
+            const now = new Date().getTime();
+            const distance = endDate - now;
+            
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<h3>Promo Ended</h3>';
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Update promo stats
+        async function updatePromoStats() {
+            try {
+                // Simulate user count (in real app, fetch from Firebase)
+                const totalUsers = Math.floor(Math.random() * 20) + 1;
+                const promoWinners = Math.min(totalUsers, 5);
+                const spotsLeft = Math.max(0, 5 - promoWinners);
+                
+                document.getElementById('totalUsers').textContent = totalUsers;
+                document.getElementById('promoWinners').textContent = promoWinners;
+                document.getElementById('spotsLeft').textContent = `${spotsLeft} / 5`;
+                
+                // Add urgency message
+                if (spotsLeft === 0) {
+                    document.getElementById('spotsLeft').innerHTML = '<span style="color: var(--loss);">FULL</span>';
+                } else if (spotsLeft <= 2) {
+                    document.getElementById('spotsLeft').innerHTML = `<span style="color: #ff6b00;">${spotsLeft} LEFT!</span>`;
+                }
+                
+            } catch (error) {
+                console.error('Error updating stats:', error);
+            }
+        }
+        
+        // FAQ Accordion
+        function initFAQ() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                    
+                    if (item.classList.contains('active')) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    } else {
+                        answer.style.maxHeight = null;
+                    }
+                });
+            });
+        }
+        
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            // Preloader
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    document.querySelector('.preloader').style.display = 'none';
+                }, 500);
+            });
+            
+            // Mobile menu
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    document.querySelector('.nav-links').classList.toggle('active');
+                });
+            }
+            
+            // Start countdown
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+            
+            // Update stats
+            updatePromoStats();
+            setInterval(updatePromoStats, 10000); // Update every 10 seconds
+            
+            // Initialize FAQ
+            initFAQ();
+            
+            // Add promo-specific styles
+            if (!document.querySelector('#promo-styles')) {
+                const style = document.createElement('style');
+                style.id = 'promo-styles';
+                style.textContent = `
+                    /* Promo Hero */
+                    .promo-hero {
+                        padding: 8rem 2rem 4rem;
+                        background: linear-gradient(135deg, #0a0e17 0%, #151b2d 100%);
+                        text-align: center;
+                    }
+                    
+                    .promo-hero-content {
+                        max-width: 800px;
+                        margin: 0 auto;
+                    }
+                    
+                    .promo-title {
+                        font-size: 3.5rem;
+                        margin-bottom: 1rem;
+                        line-height: 1.2;
+                    }
+                    
+                    .promo-subtitle {
+                        font-size: 1.25rem;
+                        color: var(--text-secondary);
+                        margin-bottom: 2rem;
+                        max-width: 600px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                    
+                    /* Countdown */
+                    .promo-countdown {
+                        display: flex;
+                        justify-content: center;
+                        gap: 1.5rem;
+                        margin: 2rem 0;
+                    }
+                    
+                    .countdown-item {
+                        background: var(--card);
+                        border-radius: 12px;
+                        padding: 1.5rem;
+                        min-width: 100px;
+                        border: 1px solid var(--border);
+                    }
+                    
+                    .countdown-item span {
+                        font-size: 2.5rem;
+                        font-weight: bold;
+                        background: linear-gradient(135deg, var(--primary), var(--secondary));
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        display: block;
+                    }
+                    
+                    .countdown-item small {
+                        color: var(--text-secondary);
+                        font-size: 0.9rem;
+                    }
+                    
+                    /* Stats */
+                    .promo-stats {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                        gap: 1.5rem;
+                        margin: 3rem 0;
+                    }
+                    
+                    .stat-card {
+                        background: var(--card);
+                        border-radius: 12px;
+                        padding: 1.5rem;
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        border: 1px solid var(--border);
+                    }
+                    
+                    .stat-icon {
+                        font-size: 2rem;
+                        color: var(--primary);
+                    }
+                    
+                    .stat-content h3 {
+                        font-size: 0.9rem;
+                        color: var(--text-secondary);
+                        margin-bottom: 0.25rem;
+                    }
+                    
+                    .stat-value {
+                        font-size: 1.5rem;
+                        font-weight: bold;
+                        color: var(--text);
+                    }
+                    
+                    /* Buttons */
+                    .btn-promo-large {
+                        background: linear-gradient(135deg, #ff0088, #ff6b00);
+                        color: white;
+                        padding: 1rem 2rem;
+                        border-radius: 12px;
+                        text-decoration: none;
+                        font-weight: 600;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 10px;
+                        font-size: 1.1rem;
+                        transition: transform 0.3s, box-shadow 0.3s;
+                    }
+                    
+                    .btn-promo-large:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 15px 30px rgba(255, 0, 136, 0.3);
+                    }
+                    
+                    /* Prizes */
+                    .prizes {
+                        padding: 4rem 0;
+                        background: var(--surface);
+                    }
+                    
+                    .prize-cards {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                        gap: 2rem;
+                        max-width: 1000px;
+                        margin: 0 auto;
+                    }
+                    
+                    .prize-card {
+                        background: var(--card);
+                        border-radius: 16px;
+                        padding: 2rem;
+                        border: 1px solid var(--border);
+                        transition: transform 0.3s;
+                    }
+                    
+                    .prize-card.featured {
+                        border: 2px solid var(--primary);
+                        transform: scale(1.05);
+                    }
+                    
+                    .prize-header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 1.5rem;
+                    }
+                    
+                    .prize-badge {
+                        background: var(--surface);
+                        color: var(--text-secondary);
+                        padding: 0.25rem 0.75rem;
+                        border-radius: 20px;
+                        font-size: 0.8rem;
+                        font-weight: 600;
+                    }
+                    
+                    .prize-badge.promo {
+                        background: linear-gradient(135deg, #ff0088, #ff6b00);
+                        color: white;
+                    }
+                    
+                    .prize-amount {
+                        text-align: center;
+                        margin: 2rem 0;
+                    }
+                    
+                    .prize-amount .amount {
+                        font-size: 3rem;
+                        font-weight: bold;
+                        background: linear-gradient(135deg, var(--primary), var(--secondary));
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        display: block;
+                    }
+                    
+                    .prize-amount .label {
+                        color: var(--text-secondary);
+                        font-size: 1rem;
+                    }
+                    
+                    .prize-bonus {
+                        background: rgba(255, 0, 136, 0.1);
+                        color: #ff0088;
+                        padding: 0.75rem;
+                        border-radius: 8px;
+                        text-align: center;
+                        margin: 1.5rem 0;
+                        font-weight: 600;
+                    }
+                    
+                    .prize-features {
+                        list-style: none;
+                        margin: 1.5rem 0;
+                    }
+                    
+                    .prize-features li {
+                        padding: 0.5rem 0;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
+                    
+                    .prize-features i {
+                        color: var(--primary);
+                    }
+                    
+                    /* Rules */
+                    .rules {
+                        padding: 4rem 0;
+                    }
+                    
+                    .rules-content {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                        gap: 2rem;
+                        max-width: 1000px;
+                        margin: 0 auto;
+                    }
+                    
+                    .rules-card {
+                        background: var(--card);
+                        border-radius: 16px;
+                        padding: 2rem;
+                        border: 1px solid var(--border);
+                    }
+                    
+                    .rules-card h3 {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        margin-bottom: 1.5rem;
+                    }
+                    
+                    .rules-list {
+                        list-style: none;
+                    }
+                    
+                    .rules-list li {
+                        padding: 0.75rem 0;
+                        display: flex;
+                        align-items: flex-start;
+                        gap: 10px;
+                        border-bottom: 1px solid var(--border);
+                    }
+                    
+                    .rules-list li:last-child {
+                        border-bottom: none;
+                    }
+                    
+                    .rules-list i {
+                        margin-top: 0.25rem;
+                        color: var(--primary);
+                    }
+                    
+                    /* FAQ */
+                    .faq {
+                        padding: 4rem 0;
+                        background: var(--surface);
+                    }
+                    
+                    .faq-grid {
+                        max-width: 800px;
+                        margin: 0 auto;
+                    }
+                    
+                    .faq-item {
+                        background: var(--card);
+                        border-radius: 12px;
+                        margin-bottom: 1rem;
+                        overflow: hidden;
+                        border: 1px solid var(--border);
+                    }
+                    
+                    .faq-question {
+                        padding: 1.5rem;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        cursor: pointer;
+                    }
+                    
+                    .faq-question h3 {
+                        font-size: 1.1rem;
+                        margin: 0;
+                    }
+                    
+                    .faq-question i {
+                        transition: transform 0.3s;
+                    }
+                    
+                    .faq-item.active .faq-question i {
+                        transform: rotate(180deg);
+                    }
+                    
+                    .faq-answer {
+                        padding: 0 1.5rem;
+                        max-height: 0;
+                        overflow: hidden;
+                        transition: max-height 0.3s ease;
+                    }
+                    
+                    .faq-item.active .faq-answer {
+                        padding-bottom: 1.5rem;
+                    }
+                    
+                    /* CTA */
+                    .promo-cta {
+                        padding: 4rem 0;
+                        text-align: center;
+                    }
+                    
+                    .cta-content {
+                        max-width: 600px;
+                        margin: 0 auto;
+                    }
+                    
+                    .cta-content h2 {
+                        font-size: 2.5rem;
+                        margin-bottom: 1rem;
+                    }
+                    
+                    .cta-stats {
+                        display: flex;
+                        justify-content: center;
+                        gap: 2rem;
+                        margin: 2rem 0;
+                        flex-wrap: wrap;
+                    }
+                    
+                    .cta-stat {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        color: var(--text-secondary);
+                    }
+                    
+                    .cta-note {
+                        margin-top: 2rem;
+                        color: var(--text-secondary);
+                        font-size: 0.9rem;
+                    }
+                    
+                    /* Copyright */
+                    .copyright {
+                        text-align: center;
+                        color: var(--text-secondary);
+                        font-size: 0.9rem;
+                        margin-top: 2rem;
+                        padding-top: 2rem;
+                        border-top: 1px solid var(--border);
+                    }
+                    
+                    /* Responsive */
+                    @media (max-width: 768px) {
+                        .promo-title {
+                            font-size: 2.5rem;
+                        }
+                        
+                        .countdown-item {
+                            min-width: 70px;
+                            padding: 1rem;
+                        }
+                        
+                        .countdown-item span {
+                            font-size: 2rem;
+                        }
+                        
+                        .prize-card.featured {
+                            transform: none;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        });
+    </script>
+</body>
+</html>
